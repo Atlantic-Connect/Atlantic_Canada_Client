@@ -1,5 +1,5 @@
 'use client'
-import API_URL  from '@/constants/constant';
+import API_URL from '@/constants/constant';
 import React, { useEffect, useState } from 'react';
 
 interface TeamMember {
@@ -22,7 +22,7 @@ function About() {
     const fetchData = async () => {
       try {
         const response = await fetch(API_URL.ABOUT_US, {
-          
+
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -34,8 +34,8 @@ function About() {
         }
 
         const data = await response.json();
-        console.log(data[0]);
-        setAboutUsInfo(data[0].about_us); // Adjusted to match your data structure
+        console.log(data);
+        setAboutUsInfo(data.data[0].about_us); // Adjusted to match your data structure
       } catch (error) {
         console.error('Error fetching data:', error);
       }
